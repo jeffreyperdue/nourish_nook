@@ -1,22 +1,36 @@
+/* src/components/FoodJournal.css */
+
 .food-journal-container {
   display: flex;
+  justify-content: center; /* Center the journal within the container */
+  align-items: center; /* Align items to the center vertically */
   width: 100%;
-  max-width: 1200px;
-  margin-top: 100px;
+}
+
+.sticker-bank-wrapper {
+  display: flex;
+  align-items: center; /* Center the sticker banks vertically */
+  flex-direction: column; /* Stack stickers vertically */
+  flex-grow: 1; /* Allow the sticker banks to grow and shrink */
+  margin: 0 20px; /* Add some margin to space out the elements */
 }
 
 .food-journal {
-  flex-grow: 1;
-  max-width: 800px;
-  background: white;
+  width: 100%;
+  max-width: 800px; /* Limit the maximum width */
+  background-color: white;
+  background-image: 
+    linear-gradient(90deg, rgba(200, 0, 0, 0.5) 50%, transparent 50%),
+    linear-gradient(rgba(200, 0, 0, 0.5) 50%, transparent 50%);
+  background-size: 50px 50px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 20px;
+  align-items: center; /* Center contents horizontally */
+  margin-top: 80px; /* Add margin to prevent overlap with header */
 }
 
 .food-journal h2 {
@@ -25,29 +39,41 @@
 }
 
 .journal-area {
-  width: 100%;
+  width: 100%; /* Ensure it takes full width available */
   border: 2px dashed #ccc;
   padding: 20px;
-  min-height: 400px;
+  min-height: 400px; /* Ensure minimum height */
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Ensure column layout */
+  align-items: center; /* Center items horizontally */
+  background-color: #fff;
+  background-image: 
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .journal-area textarea {
   width: 100%;
-  height: 200px;
+  height: 200px; /* Ensure height */
   border: none;
   outline: none;
   resize: none;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Indie Flower', cursive; /* Use a handwritten font */
+  font-size: 16px;
+  padding: 10px;
+  background: transparent; /* Make background transparent to show texture */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
 .icons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* Center icons horizontally */
   width: 100%;
 }
 
@@ -57,9 +83,16 @@
   margin: 5px;
 }
 
+.draggable-icon {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  cursor: pointer;
+}
+
 .save-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center buttons horizontally */
   margin-top: 20px;
   width: 100%;
 }
@@ -73,7 +106,7 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color var(--transition-time);
-  margin: 0 5px;
+  margin: 0 5px; /* Space between buttons */
 }
 
 .save-buttons button:hover {
