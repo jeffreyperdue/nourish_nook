@@ -1,0 +1,28 @@
+/* src/components/Header.css */
+.App-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--primary-color);
+  font-family: var(--font-family);
+}
+
+.account-button img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}

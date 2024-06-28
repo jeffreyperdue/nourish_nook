@@ -1,0 +1,170 @@
+/* src/components/Home.css */
+.features {
+  width: 80%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.features h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.feature {
+  margin-bottom: 30px;
+}
+
+.feature h3 {
+  font-size: 22px;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 18px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.feature img {
+  max-width: 55px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.start-today,
+.explore-journal {
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color var(--transition-time);
+  margin: 20px 10px;
+}
+
+.start-today:hover,
+.explore-journal:hover {
+  background-color: #e64a19;
+}
+
+.plant-container {
+  position: relative;
+  height: 500px;
+  width: 100px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plant-stem {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  background-color: green;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flower-branch {
+  position: absolute;
+  width: 2px;
+  background-color: green;
+  transform-origin: bottom;
+}
+
+.flower {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: pink;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ff69b4;
+  box-shadow: 0 0 5px #ff69b4;
+}
+
+.flower-top {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flower-center {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  background-color: yellow;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 44px;
+  color: black;
+  z-index: 10;
+}
+
+.petal {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #eeaacc;
+  box-shadow: 0 0 5px #ff69b4;
+  z-index: 5;
+}
+
+.petal1 { transform: rotate(0deg) translate(50px); }
+.petal2 { transform: rotate(60deg) translate(50px); }
+.petal3 { transform: rotate(120deg) translate(50px); }
+.petal4 { transform: rotate(180deg) translate(50px); }
+.petal5 { transform: rotate(240deg) translate(50px); }
+.petal6 { transform: rotate(300deg) translate(50px); }
+
+.capture-flower {
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color var(--transition-time);
+  margin: 20px 0;
+}
+
+.capture-flower:hover {
+  background-color: #e64a19;
+}
+
+.archived-images {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.archived-image {
+  margin-bottom: 20px;
+}
+
+.archived-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}

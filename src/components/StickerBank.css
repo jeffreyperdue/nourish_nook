@@ -1,0 +1,35 @@
+/* src/components/StickerBank.css */
+.sticker-bank-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .sticker-bank {
+    width: 200px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .sticker-bank.left {
+    margin-right: 20px;
+  }
+  
+  .sticker-bank.right {
+    margin-left: 20px;
+  }
+  
+  .sticker-bank h3 {
+    margin-bottom: 10px;
+  }
+  
+  .sticker-bank img {
+    margin: 5px;
+    cursor: pointer;
+    width: 40px; /* Adjusted size */
+    height: 40px; /* Adjusted size */
+  }
