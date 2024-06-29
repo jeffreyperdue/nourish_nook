@@ -10,14 +10,31 @@ const fruitAndVeggieIcons = [
 ];
 
 const emojiIcons = [
-    'images/grinning.png',
-    'images/disappointed.png',
+  'images/grinning.png',
+  'images/disappointed.png',
   // Add more emoji icons
 ];
 
+const stickerIcons = [
+  'images/sun.png',
+  'images/dino.png',
+  // Add more sticker icons
+];
+
 const StickerBank = ({ type }) => {
-  const icons = type === 'left' ? fruitAndVeggieIcons : emojiIcons;
-  const title = type === 'left' ? 'Fruits & Veggies' : 'Emojis';
+  let icons = [];
+  let title = '';
+
+  if (type === 'left') {
+    icons = fruitAndVeggieIcons;
+    title = 'Fruits & Veggies';
+  } else if (type === 'right') {
+    icons = emojiIcons;
+    title = 'Emojis';
+  } else if (type === 'bottom') {
+    icons = stickerIcons;
+    title = 'Stickers';
+  }
 
   return (
     <div className={`sticker-bank ${type}`}>

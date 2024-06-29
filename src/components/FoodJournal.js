@@ -7,7 +7,6 @@ import './FoodJournal.css';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
-// Add Quill editor container
 const FoodJournal = () => {
   const [entries, setEntries] = useState([]);
   const [currentEntry, setCurrentEntry] = useState('');
@@ -21,7 +20,7 @@ const FoodJournal = () => {
   });
 
   useEffect(() => {
-    setUsername('JohnDoe');
+    setUsername('Hot_Rod_95');
     if (!quillInstanceRef.current) { // Check if Quill instance is already created
       quillInstanceRef.current = new Quill(quillRef.current, {
         theme: 'snow',
@@ -69,28 +68,32 @@ const FoodJournal = () => {
   const todayDate = new Date().toLocaleDateString();
 
   return (
-    <div 
-      className="food-journal-background"
-    >
-      <div className="sticker-bank-wrapper">
-        <StickerBank type="left" />
-      </div>
+    <div className="food-journal-background">
+      <img src="/images/leaves.png" alt="Background" className="background-image" />
       <div className="food-journal-container">
-        <div className="food-journal" ref={setNodeRef}>
-          <h2>{`${username}'s Journal - ${todayDate}`}</h2>
-          <div className="journal-area">
-            <div ref={quillRef} className="quill-editor" />
-            <div className="icons">
-              {icons.map((icon, index) => (
-                <img key={index} src={icon} alt="icon" className="journal-icon" />
-              ))}
+        <div className="sticker-bank-wrapper left">
+          <StickerBank type="left" />
+        </div>
+        <div className="food-journal-content">
+          <div className="food-journal" ref={setNodeRef}>
+            <h2>{`${username}'s Journal - ${todayDate}`}</h2>
+            <div className="journal-area">
+              <div ref={quillRef} className="quill-editor" />
+              <div className="icons">
+                {icons.map((icon, index) => (
+                  <img key={index} src={icon} alt="icon" className="journal-icon" />
+                ))}
+              </div>
             </div>
+            <SaveButtons onSave={handleSave} onSaveDraft={handleSaveDraft} onDiscard={handleDiscard} />
           </div>
-          <SaveButtons onSave={handleSave} onSaveDraft={handleSaveDraft} onDiscard={handleDiscard} />
+        </div>
+        <div className="sticker-bank-wrapper right">
+          <StickerBank type="right" />
         </div>
       </div>
-      <div className="sticker-bank-wrapper">
-        <StickerBank type="right" />
+      <div className="sticker-bank-wrapper-bottom">
+        <StickerBank type="bottom" />
       </div>
     </div>
   );

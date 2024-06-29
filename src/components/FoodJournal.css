@@ -3,11 +3,22 @@
 /* Ensure the background is displayed correctly */
 .food-journal-background {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative; /* Set position to relative to contain the absolutely positioned image */
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place it behind other elements */
+  object-fit: cover; /* Ensure the image covers the entire area */
 }
 
 /* Style the container to use flexbox for alignment */
@@ -16,6 +27,7 @@
   justify-content: center; /* Center the journal within the container */
   align-items: center; /* Align items to the center vertically */
   width: 100%;
+  margin-bottom: 20px; /* Add some space at the bottom for the third sticker bank */
 }
 
 /* Style for the sticker banks to ensure they are on the sides */
@@ -27,10 +39,30 @@
   margin: 0 20px; /* Add some margin to space out the elements */
 }
 
+.sticker-bank-wrapper.left,
+.sticker-bank-wrapper.right {
+  justify-content: center; /* Center the left and right sticker banks vertically */
+}
+
+/* Style for the bottom sticker bank */
+.sticker-bank-wrapper-bottom {
+  display: flex;
+  justify-content: center; /* Center the sticker bank horizontally */
+  align-items: center; /* Center the sticker bank vertically */
+  margin-top: 20px; /* Add some margin to space out the elements */
+}
+
 /* Style for the journal itself */
-.food-journal {
+.food-journal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 800px; /* Limit the maximum width */
+}
+
+.food-journal {
+  width: 100%;
   background-color: white;
   background-image: 
     linear-gradient(90deg, rgba(200, 0, 0, 0.5) 50%, transparent 50%),
@@ -50,6 +82,15 @@
 .food-journal h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'Patrick Hand', cursive; /* Apply handwritten font */
+  background-color: #deb887; /* Wood color */
+  color: #4b2e19; /* Darker brown for text */
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #8b4513; /* Darker brown border */
+  background-image: linear-gradient(45deg, #d2b48c 25%, transparent 25%, transparent 75%, #d2b48c 75%, #d2b48c), linear-gradient(45deg, #d2b48c 25%, transparent 25%, transparent 75%, #d2b48c 75%, #d2b48c);
+  background-size: 40px 40px;
 }
 
 /* Style for the journal area */
@@ -71,19 +112,12 @@
   padding: 20px;
 }
 
-/* Style for the text area */
-.journal-area textarea {
+/* Style for the Quill editor */
+.quill-editor {
   width: 100%;
-  height: 200px; /* Ensure height */
-  border: none;
-  outline: none;
-  resize: none;
-  font-family: 'Indie Flower', cursive; /* Use a handwritten font */
-  font-size: 16px;
-  padding: 10px;
-  background: transparent; /* Make background transparent to show texture */
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  min-height: 200px; /* Ensure minimum height */
   margin-bottom: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for icons */
