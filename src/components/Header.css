@@ -21,6 +21,10 @@
   font-family: var(--font-family);
 }
 
+.logo-button {
+  text-decoration: none; /* Add this line to remove the underline */
+}
+
 .account-button img {
   width: 30px;
   height: 30px;
