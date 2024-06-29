@@ -2,6 +2,19 @@
 
 NourishNook is a web application designed to help users achieve their health goals by tracking their food intake, monitoring their progress, and providing personalized insights. Users can log their meals, earn badges, see their plant grow as they eat more fruits and vegetables, and journal their food intake with a rich text editor.
 
+
+## Project Screenshots
+
+### Homepage
+![Homepage](public/assets/homepage.png)
+
+### Dashboard
+![Dashboard](public/assets/dashboard.png)
+
+### Food Journal
+![Food Journal](public/assets/journal.png)
+
+
 ## Features
 
 - **Track Your Food**: Log meals, snacks, and food feelings with a food journal.
