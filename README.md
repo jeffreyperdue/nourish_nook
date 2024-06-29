@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# NourishNook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NourishNook is a web application designed to help users achieve their health goals by tracking their food intake, monitoring their progress, and providing personalized insights. Users can log their meals, earn badges, see their plant grow as they eat more fruits and vegetables, and journal their food intake with a rich text editor.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Track Your Food**: Log meals, snacks, and food feelings with a food journal.
+- **See Your Plant Grow**: Earn badges and see your plant grow as you eat more fruits and vegetables.
+- **Personalized Insights**: View your fruit and vegetable tracking numbers and see your previous plants.
+- **Food Journal**: Use a rich text editor to journal your food intake, with options to change fonts, sizes, and other formatting options.
+- **Sticker Banks**: Drag and drop stickers from the banks into the journal to make entries more visual and engaging.
+- **User Dashboard**: Access a personalized dashboard with options to add journal entries, view challenges and badges, and visit the Polaroid Nursery.
+- **Polaroid Nursery**: Capture and archive daily snapshots of your weekly wellness flower.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: For building the user interface.
+- **Quill**: For the rich text editor in the food journal.
+- **@dnd-kit**: For drag-and-drop functionality.
+- **React Router**: For client-side routing.
+- **Bootstrap**: For responsive and mobile-first styling.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/yourusername/nourish_nook.git
+    cd nourish_nook
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies**:
+    ```sh
+    npm install
+    ```
 
-### `npm run build`
+3. **Start the development server**:
+    ```sh
+    npm start
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open your browser and navigate to `http://localhost:3000` to see the app in action.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Home Page**: View the main features and start your journey by clicking "Join Today".
+- **Login/Sign Up**: Create a new account or log in to access your personalized dashboard.
+- **User Dashboard**: View your weekly wellness flower, add journal entries, view challenges/badges, and visit the Polaroid Nursery.
+- **Food Journal**: Use the rich text editor to log your food intake, drag and drop stickers, and save or discard your entries.
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `src/components`: Contains all the React components used in the project.
+- `src/styles`: Contains the CSS files for styling the components.
+- `public/images`: Contains image assets used in the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Fork the repository**.
+2. **Create a new branch**:
+    ```sh
+    git checkout -b feature/your-feature-name
+    ```
+3. **Make your changes**.
+4. **Commit your changes**:
+    ```sh
+    git commit -m 'Add some feature'
+    ```
+5. **Push to the branch**:
+    ```sh
+    git push origin feature/your-feature-name
+    ```
+6. **Open a pull request**.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Acknowledgements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React** for providing a robust framework for building user interfaces.
+- **Quill** for the rich text editor.
+- **@dnd-kit** for the drag-and-drop functionality.
+- **Bootstrap** for responsive design components.
