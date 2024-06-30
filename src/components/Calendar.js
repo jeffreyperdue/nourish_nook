@@ -3,90 +3,87 @@ import React, { useState, useEffect } from 'react';
 import './Calendar.css';
 
 const Calendar = () => {
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const monthsOfYear = [
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [currentDate, setCurrentDate] = useState(new Date().getDate());
+
+  const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  const getCurrentESTDate = () => {
-    const currentDate = new Date();
-    const offset = currentDate.getTimezoneOffset() * 60000;
-    const utcTime = currentDate.getTime() + offset;
-    const estTime = utcTime + (-5 * 3600000); // -5 hours for EST (without considering daylight saving)
-    return new Date(estTime);
+  const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
+
+  const firstDayOfMonth = (month, year) => new Date(year, month, 1).getDay();
+
+  const handleMonthClick = (month) => {
+    setCurrentMonth(month);
+    setCurrentDate(null); // Clear the current date to avoid incorrect highlighting
   };
 
-  const [currentDate, setCurrentDate] = useState(getCurrentESTDate());
-  const [selectedMonth, setSelectedMonth] = useState(currentDate.getMonth());
-  const currentYear = currentDate.getFullYear();
-  const today = currentDate.getDate();
-
-  const getDaysInMonth = (month, year) => {
-    return new Date(year, month + 1, 0).getDate();
+  const renderDaysOfWeek = () => {
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return daysOfWeek.map((day, index) => (
+      <div key={index} className="day-of-week">{day}</div>
+    ));
   };
 
-  const daysInMonth = getDaysInMonth(selectedMonth, currentYear);
-  const firstDayOfMonth = new Date(currentYear, selectedMonth, 1).getDay();
+  const renderDays = () => {
+    const days = [];
+    const daysInCurrentMonth = daysInMonth(currentMonth, currentYear);
+    const firstDay = firstDayOfMonth(currentMonth, currentYear);
 
-  const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+    for (let i = 0; i < firstDay; i++) {
+      days.push(<div key={`empty-${i}`} className="empty-day"></div>);
+    }
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = getCurrentESTDate();
-      if (now.getDate() !== currentDate.getDate()) {
-        setCurrentDate(now);
-      }
-    }, 60000); // Check every minute
+    for (let day = 1; day <= daysInCurrentMonth; day++) {
+      const isCurrentDay =
+        day === currentDate &&
+        currentMonth === new Date().getMonth() &&
+        currentYear === new Date().getFullYear();
 
-    return () => clearInterval(timer);
-  }, [currentDate]);
+      days.push(
+        <div
+          key={day}
+          className={`day ${isCurrentDay ? 'current-day' : ''}`}
+        >
+          {day}
+        </div>
+      );
+    }
 
-  const handleMonthClick = (monthIndex) => {
-    setSelectedMonth(monthIndex);
+    return days;
+  };
+
+  const renderMonths = () => {
+    return monthNames.map((month, index) => (
+      <div
+        key={index}
+        className={`month ${index === currentMonth ? 'current-month' : ''}`}
+        onClick={() => handleMonthClick(index)}
+      >
+        {month}
+      </div>
+    ));
   };
 
   return (
-    <div className="calendar">
-      <div className="calendar-header">
-        {daysOfWeek.map((day, index) => (
-          <div key={index} className="day-of-week">{day}</div>
-        ))}
+    <div className="wall-calendar">
+      <div className="month-image">
+        {/* Placeholder for month image */}
+        <img src={`/images/${monthNames[currentMonth].toLowerCase()}.jpg`} alt={monthNames[currentMonth]} />
       </div>
-      <div className="calendar-body">
-        {Array.from({ length: firstDayOfMonth }).map((_, index) => (
-          <div key={index} className="empty-day"></div>
-        ))}
-        {days.map((day) => (
-          <div
-            key={day}
-            className={`day ${day === today && selectedMonth === currentDate.getMonth() ? 'current-day' : ''}`}
-          >
-            {day}
-          </div>
-        ))}
-      </div>
-      <div className="calendar-footer">
-        {monthsOfYear.slice(0, 6).map((month, index) => (
-          <div
-            key={index}
-            className={`month ${index === selectedMonth ? 'current-month' : ''}`}
-            onClick={() => handleMonthClick(index)}
-          >
-            {month}
-          </div>
-        ))}
-      </div>
-      <div className="calendar-footer">
-        {monthsOfYear.slice(6, 12).map((month, index) => (
-          <div
-            key={index + 6}
-            className={`month ${index + 6 === selectedMonth ? 'current-month' : ''}`}
-            onClick={() => handleMonthClick(index + 6)}
-          >
-            {month}
-          </div>
-        ))}
+      <div className="calendar">
+        <div className="calendar-header">
+          {renderDaysOfWeek()}
+        </div>
+        <div className="calendar-body">
+          {renderDays()}
+        </div>
+        <div className="calendar-footer">
+          {renderMonths()}
+        </div>
       </div>
     </div>
   );
