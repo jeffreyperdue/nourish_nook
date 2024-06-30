@@ -5,9 +5,10 @@
   box-shadow: var(--box-shadow);
   padding: 20px;
   max-width: 400px;
-  margin: 50px auto;
+  margin: 100px auto;
   text-align: center;
   font-family: var(--font-family);
+  position: relative;
 }
 
 .login-container h2 {
@@ -49,4 +50,55 @@
 
 .login-container button:hover {
   background-color: #45a049;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .login-container {
+    margin: 50px auto; /* Adjust margin for smaller screens */
+    padding: 15px;
+  }
+
+  .login-container h2 {
+    font-size: 20px;
+  }
+
+  .login-container label {
+    font-size: 16px;
+  }
+
+  .login-container input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .login-container button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    margin: 30px auto; /* Adjust margin for smaller screens */
+    padding: 10px;
+  }
+
+  .login-container h2 {
+    font-size: 18px;
+  }
+
+  .login-container label {
+    font-size: 14px;
+  }
+
+  .login-container input {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .login-container button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import './Dashboard.css';
 import Polaroid from './Polaroid';
+import FoodOfTheDay from './FoodOfTheDay';
 
 const Dashboard = ({ username }) => {
   const [number, setNumber] = useState(0);
@@ -113,6 +114,7 @@ const Dashboard = ({ username }) => {
         </div>
       </div>
       <button onClick={captureFlower} className="capture-flower">Capture Flower</button>
+      <FoodOfTheDay />
       <div className="dashboard-buttons">
         <Link to="/food-journal">
           <button className="dashboard-button">Add Journal Entry</button>
