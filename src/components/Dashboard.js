@@ -5,6 +5,7 @@ import html2canvas from 'html2canvas';
 import './Dashboard.css';
 import Polaroid from './Polaroid';
 import FoodOfTheDay from './FoodOfTheDay';
+import Calendar from './Calendar'; // Import the Calendar component
 
 const Dashboard = ({ username }) => {
   const [number, setNumber] = useState(0);
@@ -128,6 +129,7 @@ const Dashboard = ({ username }) => {
           <Polaroid key={index} image={img.image} date={img.date} />
         ))}
       </div>
+      <Calendar /> {/* Add the Calendar component */}
     </main>
   );
 };
