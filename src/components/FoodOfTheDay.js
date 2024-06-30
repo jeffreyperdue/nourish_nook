@@ -61,7 +61,7 @@ const FoodOfTheDay = () => {
     <div className="card food-card" style={{ backgroundColor: bgColor }}>
       <div className="card-header">
         <h5 className="card-title" style={{ color: complementaryColor }}>
-          F.O.O.D (Food of the Day)
+          F.O.T.D (Food of the Day)
         </h5>
         <p className="card-date" style={{ color: complementaryColor }}>
           {todayDate}
