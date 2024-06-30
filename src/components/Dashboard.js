@@ -5,7 +5,7 @@ import html2canvas from 'html2canvas';
 import './Dashboard.css';
 import Polaroid from './Polaroid';
 import FoodOfTheDay from './FoodOfTheDay';
-import Calendar from './Calendar'; // Import the Calendar component
+import Calendar from './Calendar';
 
 const Dashboard = ({ username }) => {
   const [number, setNumber] = useState(0);
@@ -101,21 +101,30 @@ const Dashboard = ({ username }) => {
           Welcome, {username}!
         </div>
       </div>
-      <div className="plant-container">
-        <div className="pot" id="pot"></div>
-        <div className="plant-stem" id="plantStem"></div>
-        <div className="flower-top" id="flowerTop">
-          <div className="flower-center" id="flowerCenter">{number}</div>
-          <div className="petal petal1"></div>
-          <div className="petal petal2"></div>
-          <div className="petal petal3"></div>
-          <div className="petal petal4"></div>
-          <div className="petal petal5"></div>
-          <div className="petal petal6"></div>
+      <div className="dashboard-content">
+        <div className="calendar-container">
+          <Calendar />
+        </div>
+        <div className="fotd-container">
+          <FoodOfTheDay />
+        </div>
+        <div className="flower-container">
+          <div className="plant-container">
+            <div className="pot" id="pot"></div>
+            <div className="plant-stem" id="plantStem"></div>
+            <div className="flower-top" id="flowerTop">
+              <div className="flower-center" id="flowerCenter">{number}</div>
+              <div className="petal petal1"></div>
+              <div className="petal petal2"></div>
+              <div className="petal petal3"></div>
+              <div className="petal petal4"></div>
+              <div className="petal petal5"></div>
+              <div className="petal petal6"></div>
+            </div>
+          </div>
+          <button onClick={captureFlower} className="capture-flower">Capture Flower</button>
         </div>
       </div>
-      <button onClick={captureFlower} className="capture-flower">Capture Flower</button>
-      <FoodOfTheDay />
       <div className="dashboard-buttons">
         <Link to="/food-journal">
           <button className="dashboard-button">Add Journal Entry</button>
@@ -129,7 +138,6 @@ const Dashboard = ({ username }) => {
           <Polaroid key={index} image={img.image} date={img.date} />
         ))}
       </div>
-      <Calendar /> {/* Add the Calendar component */}
     </main>
   );
 };
