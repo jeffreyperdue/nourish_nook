@@ -1,3 +1,4 @@
+// src/components/Home.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
@@ -31,11 +32,11 @@ const Home = () => {
     }
 
     // Set the height of the stem
-    const stemHeight = randomNumber * 17;
-    plantStem.style.height = `${stemHeight}px`;
+    const stemHeight = `${randomNumber * 17}px`;
+    plantStem.style.height = stemHeight;
 
     // Position the top flower
-    flowerTop.style.bottom = `${stemHeight}px`;
+    flowerTop.style.bottom = stemHeight;
 
     // Create and position flowers along the stem
     flowerIntervals.forEach((interval, index) => {
@@ -44,8 +45,8 @@ const Home = () => {
         flowerBranch.className = 'flower-branch';
 
         // Set random length for the branch
-        const branchLength = Math.random() * 60 + 10; // Between 10px and 70px
-        flowerBranch.style.height = `${branchLength}px`;
+        const branchLength = `${Math.random() * 60 + 10}px`; // Between 10px and 70px
+        flowerBranch.style.height = branchLength;
 
         flowerBranch.style.bottom = `${interval * 17}px`;
 
