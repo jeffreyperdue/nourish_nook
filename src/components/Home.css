@@ -3,13 +3,22 @@
 @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
 
+.homepage {
+  padding: 20px;
+}
+
+.homepage-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .homepage-content {
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
 
-.left-column {
+.left-column, .right-column {
   width: 20%;
 }
 
@@ -17,18 +26,9 @@
   width: 55%;
 }
 
-.right-column {
-  width: 20%;
-}
-
 .features {
   text-align: center;
   margin-top: 50px;
-}
-
-h1 {
-  text-align: center;
-  margin-top: 60px;
 }
 
 ul {

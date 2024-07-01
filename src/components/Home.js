@@ -6,6 +6,7 @@ import './Home.css';
 const Home = () => {
   return (
     <main className="homepage">
+      <h1 className="homepage-title">Welcome to NourishNook</h1>
       <div className="homepage-content">
         <section className="left-column">
           <Link to="/signup">
@@ -16,7 +17,6 @@ const Home = () => {
           </Link>
         </section>
         <section className="middle-column">
-          <h1>Welcome to NourishNook</h1>
           <ul>
             <li style={{ '--accent-color': '#0B374D' }}>
               <div className="icon"><i className="fa-solid fa-book"></i></div>
