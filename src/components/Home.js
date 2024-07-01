@@ -1,4 +1,3 @@
-// src/components/Home.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
@@ -111,10 +110,16 @@ const Home = () => {
         </ul>
       </section>
       <Link to="/signup">
-        <button className="start-today">Join Today</button>
+        <div className="home-card">
+          <div className="home-card-text">Get Started</div>
+          <div className="home-card-image" style={{ backgroundImage: 'url(/images/flowersnip.png)' }}></div>
+        </div>
       </Link>
       <Link to="/food-journal">
-        <button className="explore-journal">Explore Journal</button>
+        <div className="home-card">
+          <div className="home-card-text">Explore Journal</div>
+          <div className="home-card-image" style={{ backgroundImage: 'url(/images/journalsnip.png)' }}></div>
+        </div>
       </Link>
       <div className="plant-container">
         <div className="pot" id="pot"></div>
