@@ -1,8 +1,27 @@
+/* src/components/Home.css */
+
 @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
 
+.homepage-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.left-column {
+  width: 20%;
+}
+
+.middle-column {
+  width: 55%;
+}
+
+.right-column {
+  width: 20%;
+}
+
 .features {
-  width: 80%;
   text-align: center;
   margin-top: 50px;
 }
@@ -18,22 +37,16 @@ ul {
   --roleH: 2rem;
   --flapH: 2rem;
 
-  width: min(60rem, 90%);
-  margin-inline: auto;
-
   display: flex;
-  flex-wrap: wrap;
-
+  flex-wrap: nowrap;
   gap: var(--col-gap);
-  padding-inline: calc(var(--col-gap) / 2);
-
-  justify-content: center;
-  align-items: flex-start;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 ul li {
-  width: 10em;
+  width: 100%;
   display: grid;
   grid-template:
     "role"
@@ -53,14 +66,13 @@ ul li {
   clip-path: polygon(
     calc(var(--col-gap) / -2 - 5px) 0,
     calc(100% + var(--col-gap) / 2 + 5px) 0,
-    calc(100% + var(--col-gap) / 2 + 5px ) calc(100% - var(--flapH)),
+    calc(100% + var(--col-gap) / 2 + 5px) calc(100% - var(--flapH)),
     50% 100%,
     calc(var(--col-gap) / -2 - 5px) calc(100% - var(--flapH))
   );
   font-family: 'Poppins', sans-serif; /* Ensure the banner text uses Poppins font */
 }
 
-/* bar */
 ul li::before {
   content: "";
   grid-area: role;
@@ -80,7 +92,6 @@ ul li::before {
   );
 }
 
-/* role */
 ul li::after {
   content: "";
   grid-area: role;
@@ -117,136 +128,8 @@ ul li .descr {
   font-size: 0.9rem;
 }
 
-.credits {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-}
-
-.credits a {
-  color: var(--color);
-}
-
-.plant-container {
-  position: relative;
-  height: 500px;
-  width: 100px;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.plant-stem {
-  position: absolute;
-  bottom: 0;
-  width: 10px;
-  background-color: green;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.flower-branch {
-  position: absolute;
-  width: 2px;
-  background-color: green;
-  transform-origin: bottom;
-}
-
-.flower {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: pink;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #ff69b4;
-  box-shadow: 0 0 5px #ff69b4;
-}
-
-.flower-top {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flower-center {
-  position: absolute;
-  width: 66px;
-  height: 66px;
-  background-color: yellow;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 44px;
-  color: black;
-  z-index: 10;
-}
-
-.petal {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  border-radius: 50%;
-  border: 2px solid #eeaacc;
-  box-shadow: 0 0 5px #ff69b4;
-  z-index: 5;
-}
-
-.petal1 { transform: rotate(0deg) translate(50px); }
-.petal2 { transform: rotate(60deg) translate(50px); }
-.petal3 { transform: rotate(120deg) translate(50px); }
-.petal4 { transform: rotate(180deg) translate(50px); }
-.petal5 { transform: rotate(240deg) translate(50px); }
-.petal6 { transform: rotate(300deg) translate(50px); }
-
-.capture-flower {
-  padding: 10px 20px;
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  border-radius: var(--button-border-radius);
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color var(--transition-time);
-  margin: 20px 0;
-}
-
-.capture-flower:hover {
-  background-color: #e64a19;
-}
-
-.archived-images {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.archived-image {
-  margin-bottom: 20px;
-}
-
-.archived-image img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-}
-
-/* Styles for the new cards on the homepage */
 .home-card {
-  width: 450px;
+  width: 100%; /* Full width for the card within the column */
   height: 225px;
   display: flex;
   align-items: center;
@@ -255,7 +138,7 @@ ul li .descr {
   border: 2px solid #ddd;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  margin: 20px auto;
+  margin: 20px 0;
   position: relative;
   overflow: hidden;
 }
@@ -288,4 +171,22 @@ ul li .descr {
   background: var(--secondary-color);
   transform: rotate(30deg);
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .homepage-content {
+    flex-direction: column;
+  }
+
+  .left-column, .middle-column, .right-column {
+    width: 100%;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    width: 100%;
+  }
 }
