@@ -86,22 +86,29 @@ const Home = () => {
   return (
     <main>
       <section className="features">
-        <h2>Achieve Your Health Goals with NourishNook</h2>
-        <div className="feature">
-          <h3>Track Your Food</h3>
-          <p>Log your meals, snacks, and food feelings with our food journal. Track your fruit and vegetable intake effortlessly.</p>
-          <img src="images/book.png" alt="Food Journal" />
-        </div>
-        <div className="feature">
-          <h3>See Your Plant Grow</h3>
-          <p>Earn badges and see your plant grow as you eat more fruits and vegetables. Use our calendar and graphs to monitor your progress over time.</p>
-          <img src="images/healthy-living.png" alt="Healthy Habits" />
-        </div>
-        <div className="feature">
-          <h3>Personalized Insights</h3>
-          <p>See your fruit and vegetable tracking numbers. Visit your personalized nursery and see your previous plants.</p>
-          <img src="images/insight.png" alt="Nutrition Insights" />
-        </div>
+        <h1>Welcome to NourishNook</h1>
+        <ul>
+          <li style={{ '--accent-color': '#0B374D' }}>
+            <div className="icon"><i className="fa-solid fa-book"></i></div>
+            <div className="title">Track Your Food</div>
+            <div className="descr">Log your meals, snacks, and food feelings with our food journal. Track your fruit and vegetable intake effortlessly.</div>
+          </li>
+          <li style={{ '--accent-color': '#1286A8' }}>
+            <div className="icon"><i className="fa-solid fa-leaf"></i></div>
+            <div className="title">See Your Plant Grow</div>
+            <div className="descr">Earn badges and see your plant grow as you eat more fruits and vegetables. Use our calendar and graphs to monitor your progress over time.</div>
+          </li>
+          <li style={{ '--accent-color': '#D2B53B' }}>
+            <div className="icon"><i className="fa-solid fa-heart"></i></div>
+            <div className="title">Healthy Habits</div>
+            <div className="descr">See your fruit and vegetable tracking numbers. Visit your personalized nursery and see your previous plants.</div>
+          </li>
+          <li style={{ '--accent-color': '#DA611E' }}>
+            <div className="icon"><i className="fa-solid fa-info"></i></div>
+            <div className="title">Personalized Insights</div>
+            <div className="descr">See your fruit and vegetable tracking numbers. Visit your personalized nursery and see your previous plants.</div>
+          </li>
+        </ul>
       </section>
       <Link to="/signup">
         <button className="start-today">Join Today</button>
