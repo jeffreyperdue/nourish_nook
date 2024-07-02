@@ -1,0 +1,46 @@
+/* src/components/BadgesAndChallenges.css */
+.badges-challenges-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .badges-challenges-container h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #4b2e19;
+    font-family: 'Patrick Hand', cursive;
+  }
+  
+  .content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+  }
+  
+  .sash-column,
+  .badge-column,
+  .challenges-column {
+    flex: 1;
+    padding: 60px;
+  }
+  
+  .sash-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .badge-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .challenges-column {
+    /* Future challenges content */
+  }
+  

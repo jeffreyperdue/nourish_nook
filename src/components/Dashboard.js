@@ -1,5 +1,5 @@
 // src/components/Dashboard.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import Polaroid from './Polaroid';
@@ -55,7 +55,9 @@ const Dashboard = ({ username }) => {
         <Link to="/food-journal">
           <button className="dashboard-button">Add Journal Entry</button>
         </Link>
-        <button className="dashboard-button">View Challenges/Badges</button>
+        <Link to="/badges-challenges">
+          <button className="dashboard-button">View Challenges/Badges</button>
+        </Link>
         <Link to="/polaroid-nursery">
           <button className="dashboard-button">Visit Polaroid Nursery</button>
         </Link>
@@ -66,7 +68,7 @@ const Dashboard = ({ username }) => {
         onClose={toggleModal}
         onSave={handleSave}
         onClear={handleClear}
-        onAddToJournal={handleAddToJournal} // Pass the function to the Modal
+        onAddToJournal={handleAddToJournal}
       />
     </main>
   );
