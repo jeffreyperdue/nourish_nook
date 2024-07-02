@@ -7,6 +7,7 @@ import FoodOfTheDay from './FoodOfTheDay';
 import Calendar from './Calendar';
 import Flower from './Flower';
 import Modal from './Modal';
+import Tom from './Tom';
 
 const Dashboard = ({ username }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,6 +46,9 @@ const Dashboard = ({ username }) => {
         </div>
         <div className="flower-container">
           <Flower />
+        </div>
+        <div className="tom-container">
+          <Tom />
         </div>
       </div>
       <div className="dashboard-buttons">

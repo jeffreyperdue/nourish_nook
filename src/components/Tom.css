@@ -1,0 +1,213 @@
+/* src/components/Tom.css */
+.tom-container {
+    position: relative;
+    width: 200px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  
+  .tom-body {
+    position: relative;
+    width: 120px;
+    height: 180px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 40% 40% 20% 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: dance-body 1s infinite;
+  }
+  
+  .tom-head {
+    position: relative;
+    width: 150px;
+    height: 120px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 50% 50% 40% 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: -20px;
+  }
+  
+  .tom-eyes {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+  }
+  
+  .tom-eye {
+    width: 25px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tom-pupil {
+    width: 15px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+  }
+  
+  .tom-mouth {
+    position: absolute;
+    bottom: 20px;
+    width: 60px;
+    height: 20px;
+    background-color: black;
+    border-radius: 0 0 40px 40px;
+  }
+  
+  .tom-leaves {
+    position: absolute;
+    top: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .tom-leaf {
+    width: 30px;
+    height: 60px;
+    background: linear-gradient(to bottom, #228b22, #006400);
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .tom-leaf.leaf1 {
+    left: 20px;
+    transform: rotate(-20deg);
+  }
+  
+  .tom-leaf.leaf2 {
+    left: 45px;
+    transform: rotate(20deg);
+  }
+  
+  .tom-leaf.leaf3 {
+    left: 70px;
+    transform: rotate(-20deg);
+  }
+  
+  .tom-arms {
+    position: absolute;
+    top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .tom-arm {
+    width: 20px;
+    height: 70px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 10px;
+    position: relative;
+    animation: dance-arms 1s infinite;
+  }
+  
+  .tom-arm.left {
+    transform-origin: top left;
+  }
+  
+  .tom-arm.right {
+    transform-origin: top right;
+  }
+  
+  .tom-hand {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 50%;
+    position: absolute;
+    top: 60px;
+    left: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .finger {
+    width: 5px;
+    height: 20px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 50%;
+    margin: 0 2px;
+  }
+  
+  .tom-legs {
+    position: absolute;
+    bottom: -30px;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+  }
+  
+  .tom-leg {
+    width: 20px;
+    height: 50px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 10px;
+    position: relative;
+    animation: dance-legs 1s infinite;
+  }
+  
+  .tom-foot {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20px;
+    left: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .toe {
+    width: 5px;
+    height: 10px;
+    background: radial-gradient(circle at 50% 50%, #ff4d4d, #b30000);
+    border-radius: 50%;
+    margin: 0 2px;
+  }
+  
+  @keyframes dance-body {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes dance-arms {
+    0%, 100% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+  
+  @keyframes dance-legs {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }
+  
