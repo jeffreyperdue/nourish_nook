@@ -6,9 +6,12 @@ import Polaroid from './Polaroid';
 import FoodOfTheDay from './FoodOfTheDay';
 import Calendar from './Calendar';
 import Flower from './Flower';
+import Modal from './Modal';
 
 const Dashboard = ({ username }) => {
   const [images, setImages] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [journalEntries, setJournalEntries] = useState([]);
 
   useEffect(() => {
     // Load saved images from local storage
@@ -18,6 +21,23 @@ const Dashboard = ({ username }) => {
 
   const saveImages = (newImages) => {
     setImages(newImages);
+  };
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleSave = (entries) => {
+    setJournalEntries(entries);
+    console.log('Journal entries saved:', entries);
+  };
+
+  const handleClear = () => {
+    setJournalEntries([]);
+  };
+
+  const handleAddToJournal = (newEntry) => {
+    setJournalEntries((prevEntries) => [...prevEntries, newEntry]);
   };
 
   return (
@@ -44,6 +64,7 @@ const Dashboard = ({ username }) => {
         </Link>
         <button className="dashboard-button">View Challenges/Badges</button>
         <button className="dashboard-button">Visit Polaroid Nursery</button>
+        <button className="dashboard-button" onClick={toggleModal}>Quicklog</button>
       </div>
       <div className="archived-images">
         <h3>Archived Flowers</h3>
@@ -51,6 +72,13 @@ const Dashboard = ({ username }) => {
           <Polaroid key={index} image={img.image} date={img.date} />
         ))}
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={toggleModal}
+        onSave={handleSave}
+        onClear={handleClear}
+        onAddToJournal={handleAddToJournal} // Pass the function to the Modal
+      />
     </main>
   );
 };
