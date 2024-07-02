@@ -2,16 +2,14 @@
 import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
 
-const DraggableIcon = ({ icon, id }) => {
+const DraggableIcon = ({ icon }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: id,
+    id: icon,
   });
 
   const style = {
-    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : 'none',
-    cursor: 'pointer',
-    width: '40px',
-    height: '40px',
+    transform: `translate3d(${transform?.x}px, ${transform?.y}px, 0)`,
+    cursor: 'grab',
   };
 
   return (
@@ -22,6 +20,7 @@ const DraggableIcon = ({ icon, id }) => {
       style={style}
       {...listeners}
       {...attributes}
+      className="draggable-icon"
     />
   );
 };

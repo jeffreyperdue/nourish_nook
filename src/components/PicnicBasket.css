@@ -1,0 +1,30 @@
+/* src/components/PicnicBasket.css */
+.picnic-basket-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.picnic-basket {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+.picnic-basket img {
+  width: 100%;
+  height: auto;
+}
+
+.picnic-basket-container p {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+}

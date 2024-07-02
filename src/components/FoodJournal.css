@@ -1,5 +1,3 @@
-/* src/components/FoodJournal.css */
-
 /* Ensure the background is displayed correctly */
 .food-journal-background {
   display: flex;
@@ -166,4 +164,36 @@
 
 .save-buttons button:hover {
   background-color: #45a049;
+}
+
+/* Style for notifications */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Additional styles for the Picnic Basket */
+.picnic-basket-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.picnic-basket {
+  width: 220px;
+  height: 220px;
+  margin-bottom: 10px;
+}
+
+.picnic-basket img {
+  width: 100%;
+  height: auto;
 }
