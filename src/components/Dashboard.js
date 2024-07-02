@@ -9,19 +9,8 @@ import Flower from './Flower';
 import Modal from './Modal';
 
 const Dashboard = ({ username }) => {
-  const [images, setImages] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [journalEntries, setJournalEntries] = useState([]);
-
-  useEffect(() => {
-    // Load saved images from local storage
-    const savedImages = JSON.parse(localStorage.getItem('flowerImages')) || [];
-    setImages(savedImages);
-  }, []);
-
-  const saveImages = (newImages) => {
-    setImages(newImages);
-  };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -55,7 +44,7 @@ const Dashboard = ({ username }) => {
           <FoodOfTheDay />
         </div>
         <div className="flower-container">
-          <Flower saveImages={saveImages} />
+          <Flower />
         </div>
       </div>
       <div className="dashboard-buttons">
@@ -63,14 +52,10 @@ const Dashboard = ({ username }) => {
           <button className="dashboard-button">Add Journal Entry</button>
         </Link>
         <button className="dashboard-button">View Challenges/Badges</button>
-        <button className="dashboard-button">Visit Polaroid Nursery</button>
+        <Link to="/polaroid-nursery">
+          <button className="dashboard-button">Visit Polaroid Nursery</button>
+        </Link>
         <button className="dashboard-button" onClick={toggleModal}>Quicklog</button>
-      </div>
-      <div className="archived-images">
-        <h3>Archived Flowers</h3>
-        {images.map((img, index) => (
-          <Polaroid key={index} image={img.image} date={img.date} />
-        ))}
       </div>
       <Modal
         isOpen={isModalOpen}

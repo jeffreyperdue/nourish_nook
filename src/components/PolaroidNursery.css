@@ -1,49 +1,12 @@
 /* src/components/PolaroidNursery.css */
+.polaroid-nursery {
+  padding: 20px;
+  text-align: center;
+}
 
-.nursery-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #faf3e0;
-  }
-  
-  .nursery-container h2 {
-    font-family: 'Patrick Hand', cursive;
-    font-size: 2em;
-    color: #4b2e19;
-    margin-bottom: 20px;
-  }
-  
-  .polaroid-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .polaroid {
-    width: 150px;
-    height: 200px;
-    background: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Patrick Hand', cursive;
-    color: #333;
-  }
-  
-  .polaroid img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .polaroid p {
-    margin: 0;
-    font-size: 0.8em;
-  }
-  
+.polaroid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

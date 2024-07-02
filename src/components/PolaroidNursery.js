@@ -1,19 +1,26 @@
-import React from 'react';
+// src/components/PolaroidNursery.js
+import React, { useState, useEffect } from 'react';
 import './PolaroidNursery.css';
+import Polaroid from './Polaroid';
 
-const PolaroidNursery = ({ polaroids }) => {
+const PolaroidNursery = () => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    // Load saved images from local storage
+    const savedImages = JSON.parse(localStorage.getItem('flowerImages')) || [];
+    setImages(savedImages);
+  }, []);
+
   return (
-    <div className="nursery-container">
-      <h2>Your Polaroid Nursery</h2>
-      <div className="polaroid-gallery">
-        {polaroids.map((polaroid, index) => (
-          <div key={index} className="polaroid">
-            <img src={polaroid.src} alt={`Polaroid ${index + 1}`} />
-            <p>{polaroid.date}</p>
-          </div>
+    <main>
+      <h3>Archived Flowers</h3>
+      <div className="polaroid-nursery">
+        {images.map((img, index) => (
+          <Polaroid key={index} image={img.image} date={img.date} />
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 

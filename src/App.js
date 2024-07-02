@@ -10,6 +10,7 @@ import FoodJournal from './components/FoodJournal';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
+import PolaroidNursery from './components/PolaroidNursery';
 import Footer from './components/Footer'; // Import Footer component
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard username="JohnDoe" />} /> {/* Example username */}
+            <Route path="/polaroid-nursery" element={<PolaroidNursery />} /> {/* Add Polaroid Nursery route */}
           </Routes>
           <Footer />
         </div>
