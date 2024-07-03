@@ -3,6 +3,7 @@ import React from 'react';
 import './BadgesAndChallenges.css';
 import Sash from './Sash';
 import BadgeContainer from './BadgeContainer';
+import DashboardButton from './DashboardButton';
 
 const BadgesAndChallenges = ({ username }) => {
   const badges = [
@@ -32,6 +33,7 @@ const BadgesAndChallenges = ({ username }) => {
         <div className="challenges-column">
           {/* Future challenges content */}
         </div>
+        <DashboardButton />
       </div>
     </main>
   );

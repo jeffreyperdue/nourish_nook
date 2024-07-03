@@ -4,6 +4,7 @@ import { DndContext, useDroppable, useDraggable } from '@dnd-kit/core';
 import StickerBank from './StickerBank';
 import SaveButtons from './SaveButtons';
 import PicnicBasket from './PicnicBasket';
+import DashboardButton from './DashboardButton'; 
 import './FoodJournal.css';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
@@ -96,6 +97,7 @@ const FoodJournal = () => {
               </div>
               <SaveButtons onSave={handleSave} onSaveDraft={handleSaveDraft} onDiscard={handleDiscard} />
             </div>
+            <DashboardButton />
           </div>
           <div className="sticker-bank-wrapper right">
             <StickerBank type="right" />

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './PolaroidNursery.css';
 import Polaroid from './Polaroid';
+import DashboardButton from './DashboardButton';
 
 const PolaroidNursery = () => {
   const [images, setImages] = useState([]);
@@ -19,6 +20,7 @@ const PolaroidNursery = () => {
         {images.map((img, index) => (
           <Polaroid key={index} image={img.image} date={img.date} />
         ))}
+        <DashboardButton />
       </div>
     </main>
   );

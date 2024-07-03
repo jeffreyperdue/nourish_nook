@@ -195,3 +195,10 @@
       width: 100%;
   }
 }
+
+.tom-image {
+  width: 350px; /* Adjust the size as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

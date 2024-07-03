@@ -1,0 +1,16 @@
+/* src/components/DashboardButton.css */
+.dashboard-button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color var(--transition-time);
+  margin: 5px;
+}
+
+.dashboard-button:hover {
+  background-color: #45a049;
+}
