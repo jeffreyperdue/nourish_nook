@@ -1,0 +1,48 @@
+/* Container for the challenge card */
+.challenge-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+    max-width: 400px;
+    width: 200px;
+  }
+  
+  /* Styling for the challenge description text */
+  .challenge-description {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  /* Container for the progress bar */
+  .progress-bar-container {
+    background: #f3f3f3;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    height: 20px;
+    position: relative;
+  }
+  
+  /* Animated striped progress bar */
+  .progress-bar {
+    background: repeating-linear-gradient(
+      45deg,
+      #4caf50,
+      #4caf50 10px,
+      #66bb6a 10px,
+      #66bb6a 20px
+    );
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+  
+  /* Text below the progress bar showing the current progress */
+  .progress-text {
+    font-size: 14px;
+    text-align: center;
+  }
+  

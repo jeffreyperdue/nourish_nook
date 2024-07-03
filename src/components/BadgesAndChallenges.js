@@ -4,6 +4,7 @@ import './BadgesAndChallenges.css';
 import Sash from './Sash';
 import BadgeContainer from './BadgeContainer';
 import DashboardButton from './DashboardButton';
+import ChallengeProgressCard from './ChallengeProgressCard';
 
 const BadgesAndChallenges = ({ username }) => {
   const badges = [
@@ -20,6 +21,11 @@ const BadgesAndChallenges = ({ username }) => {
     // Add more badge images as needed
   ];
 
+  const challenges = [
+    { description: 'Log in 5 days in a row', currentProgress: 1, totalProgress: 5 },
+    { description: 'Create Your First Journal Entry', currentProgress: 0, totalProgress: 1 },
+  ];
+
   return (
     <main className="badges-challenges-container">
       <h1>Badges & Challenges</h1>
@@ -31,7 +37,14 @@ const BadgesAndChallenges = ({ username }) => {
           <BadgeContainer badges={badges} />
         </div>
         <div className="challenges-column">
-          {/* Future challenges content */}
+        {challenges.map((challenge, index) => (
+            <ChallengeProgressCard
+              key={index}
+              challengeDescription={challenge.description}
+              currentProgress={challenge.currentProgress}
+              totalProgress={challenge.totalProgress}
+            />
+          ))}
         </div>
         <DashboardButton />
       </div>
