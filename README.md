@@ -14,6 +14,9 @@ NourishNook is a web application designed to help users achieve their health goa
 ### Food Journal
 ![Food Journal](public/assets/journal.png)
 
+### Badges & Challenges
+![Badges & Challenges](public/assets/badges_and_challenges.png)
+
 
 ## Features
 
