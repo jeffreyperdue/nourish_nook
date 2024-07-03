@@ -6,6 +6,7 @@ const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentDate, setCurrentDate] = useState(new Date().getDate());
+  const [flippedDates, setFlippedDates] = useState({});
 
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -19,6 +20,13 @@ const Calendar = () => {
   const handleMonthClick = (month) => {
     setCurrentMonth(month);
     setCurrentDate(null); // Clear the current date to avoid incorrect highlighting
+  };
+
+  const handleDateClick = (day) => {
+    setFlippedDates(prevState => ({
+      ...prevState,
+      [day]: !prevState[day]
+    }));
   };
 
   const renderDaysOfWeek = () => {
@@ -43,12 +51,16 @@ const Calendar = () => {
         currentMonth === new Date().getMonth() &&
         currentYear === new Date().getFullYear();
 
+      const isFlipped = flippedDates[day];
+
       days.push(
         <div
           key={day}
-          className={`day ${isCurrentDay ? 'current-day' : ''}`}
+          className={`day ${isCurrentDay ? 'current-day' : ''} ${isFlipped ? 'flipped' : ''}`}
+          onClick={() => handleDateClick(day)}
         >
-          {day}
+          <div className="day-front">{day}</div>
+          <div className="day-back">Notes for {day}</div>
         </div>
       );
     }
@@ -71,7 +83,6 @@ const Calendar = () => {
   return (
     <div className="wall-calendar">
       <div className="month-image">
-        {/* Placeholder for month image */}
         <img src={`/images/${monthNames[currentMonth].toLowerCase()}.jpg`} alt={monthNames[currentMonth]} />
       </div>
       <div className="calendar">
