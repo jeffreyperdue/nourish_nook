@@ -80,33 +80,39 @@ const FoodJournal = ({ stickers }) => {
       <img src="/images/leaves.png" alt="Background" className="background-image" />
       <DndContext onDragEnd={handleDrop}>
         <div className="food-journal-container">
-          <div className="sticker-bank-wrapper left">
-            <StickerBank type="Fruits & Veggies" stickers={stickers} />
-          </div>
-          <PicnicBasket />
-          <div className="food-journal-content">
-            <div className="food-journal">
-              <h2>{`${username}'s Journal - ${todayDate}`}</h2>
-              <div className="journal-area">
-                <div ref={quillRef} className="quill-editor" />
-                <div className="icons">
-                  {icons.map((icon, index) => (
-                    <img key={index} src={icon} alt="icon" className="journal-icon" />
-                  ))}
-                </div>
-              </div>
-              <SaveButtons onSave={handleSave} onSaveDraft={handleSaveDraft} onDiscard={handleDiscard} />
-            </div>
+          <div className="left-column">
             <DashboardButton />
+            <PicnicBasket />
           </div>
-          <div className="sticker-bank-wrapper right">
-            <StickerBank type="Emojis" stickers={stickers} />
+          <div className="main-column">
+            <div className="food-journal-content">
+              <div className="food-journal">
+                <h2>{`${username}'s Journal - ${todayDate}`}</h2>
+                <div className="journal-area">
+                  <div ref={quillRef} className="quill-editor" />
+                  <div className="icons">
+                    {icons.map((icon, index) => (
+                      <img key={index} src={icon} alt="icon" className="journal-icon" />
+                    ))}
+                  </div>
+                </div>
+                <SaveButtons onSave={handleSave} onSaveDraft={handleSaveDraft} onDiscard={handleDiscard} />
+              </div>
+            </div>
+          </div>
+          <div className="right-column">
+            <div className="sticker-bank-wrapper">
+              <StickerBank type="Fruits & Veggies" stickers={stickers} />
+            </div>
+            <div className="sticker-bank-wrapper">
+              <StickerBank type="Emojis" stickers={stickers} />
+            </div>
+            <div className="sticker-bank-wrapper-bottom">
+              <StickerBank type="Stickers" stickers={stickers} />
+            </div>
           </div>
         </div>
         {notification && <div className="notification">{notification}</div>}
-        <div className="sticker-bank-wrapper-bottom">
-          <StickerBank type="Stickers" stickers={stickers} />
-        </div>
       </DndContext>
     </div>
   );
