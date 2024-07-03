@@ -3,44 +3,23 @@ import React from 'react';
 import DraggableIcon from './DraggableIcon';
 import './StickerBank.css';
 
-const fruitAndVeggieIcons = [
-  'images/apple.png',
-  'images/banana.png',
-  // Add more fruit and vegetable icons
-];
+const StickerBank = ({ type, stickers = [] }) => {
+  let filteredStickers = stickers.filter(sticker => sticker.pack === type);
 
-const emojiIcons = [
-  'images/grinning.png',
-  'images/disappointed.png',
-  // Add more emoji icons
-];
-
-const stickerIcons = [
-  'images/sun.png',
-  'images/dino.png',
-  // Add more sticker icons
-];
-
-const StickerBank = ({ type }) => {
-  let icons = [];
   let title = '';
-
-  if (type === 'left') {
-    icons = fruitAndVeggieIcons;
+  if (type === 'Fruits & Veggies') {
     title = 'Fruits & Veggies';
-  } else if (type === 'right') {
-    icons = emojiIcons;
+  } else if (type === 'Emojis') {
     title = 'Emojis';
-  } else if (type === 'bottom') {
-    icons = stickerIcons;
+  } else if (type === 'Stickers') {
     title = 'Stickers';
   }
 
   return (
-    <div className={`sticker-bank ${type}`}>
+    <div className={`sticker-bank ${type.toLowerCase().replace(/\s+/g, '-')}`}>
       <h3>{title}</h3>
-      {icons.map((icon, index) => (
-        <DraggableIcon key={index} icon={icon} type={type} />
+      {filteredStickers.map((sticker) => (
+        <DraggableIcon key={sticker.id} icon={sticker.image} />
       ))}
     </div>
   );

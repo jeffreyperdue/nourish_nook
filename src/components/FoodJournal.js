@@ -1,6 +1,6 @@
 // src/components/FoodJournal.js
 import React, { useState, useEffect, useRef } from 'react';
-import { DndContext, useDroppable, useDraggable } from '@dnd-kit/core';
+import { DndContext } from '@dnd-kit/core';
 import StickerBank from './StickerBank';
 import SaveButtons from './SaveButtons';
 import PicnicBasket from './PicnicBasket';
@@ -9,7 +9,7 @@ import './FoodJournal.css';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
-const FoodJournal = () => {
+const FoodJournal = ({ stickers }) => {
   const [entries, setEntries] = useState([]);
   const [currentEntry, setCurrentEntry] = useState('');
   const [icons, setIcons] = useState([]);
@@ -81,7 +81,7 @@ const FoodJournal = () => {
       <DndContext onDragEnd={handleDrop}>
         <div className="food-journal-container">
           <div className="sticker-bank-wrapper left">
-            <StickerBank type="left" />
+            <StickerBank type="Fruits & Veggies" stickers={stickers} />
           </div>
           <PicnicBasket />
           <div className="food-journal-content">
@@ -100,12 +100,12 @@ const FoodJournal = () => {
             <DashboardButton />
           </div>
           <div className="sticker-bank-wrapper right">
-            <StickerBank type="right" />
+            <StickerBank type="Emojis" stickers={stickers} />
           </div>
         </div>
         {notification && <div className="notification">{notification}</div>}
         <div className="sticker-bank-wrapper-bottom">
-          <StickerBank type="bottom" />
+          <StickerBank type="Stickers" stickers={stickers} />
         </div>
       </DndContext>
     </div>

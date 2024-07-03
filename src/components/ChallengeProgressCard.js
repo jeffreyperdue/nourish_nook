@@ -1,7 +1,7 @@
 import React from 'react';
 import './ChallengeProgressCard.css';
 
-const ChallengeProgressCard = ({ challengeDescription, currentProgress, totalProgress }) => {
+const ChallengeProgressCard = ({ challengeDescription, currentProgress, totalProgress, onComplete }) => {
   const progressPercentage = (currentProgress / totalProgress) * 100;
 
   return (
@@ -15,6 +15,9 @@ const ChallengeProgressCard = ({ challengeDescription, currentProgress, totalPro
       <div className="progress-text">
         {currentProgress} out of {totalProgress}
       </div>
+      {currentProgress >= totalProgress && (
+        <button onClick={onComplete}>Complete Challenge</button>
+      )}
     </div>
   );
 };
