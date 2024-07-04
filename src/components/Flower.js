@@ -9,6 +9,7 @@ const Flower = ({ saveImages, username }) => {
   const [number, setNumber] = useState(0);
   const [images, setImages] = useState([]);
   const [style, setStyle] = useState('default'); // State to track style
+  const [showDropdown, setShowDropdown] = useState(false); // State to toggle dropdown
 
   useEffect(() => {
     const randomNumber = Math.floor(Math.random() * 16) + 15; // Generate random number between 15 and 30
@@ -98,27 +99,44 @@ const Flower = ({ saveImages, username }) => {
 
   const getCurrentWeekDates = () => {
     const currentDate = new Date();
-    const firstDayOfWeek = currentDate.getDate() - currentDate.getDay();
-    const lastDayOfWeek = firstDayOfWeek + 6;
+    const firstDayOfWeek = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay()));
+    const lastDayOfWeek = new Date(firstDayOfWeek);
+    lastDayOfWeek.setDate(firstDayOfWeek.getDate() + 6);
 
-    const firstDate = new Date(currentDate.setDate(firstDayOfWeek)).toLocaleDateString();
-    const lastDate = new Date(currentDate.setDate(lastDayOfWeek)).toLocaleDateString();
+    const firstDate = firstDayOfWeek.toLocaleDateString();
+    const lastDate = lastDayOfWeek.toLocaleDateString();
 
     return `${firstDate} - ${lastDate}`;
   };
 
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleStyleChange = (newStyle) => {
+    setStyle(newStyle);
+    setShowDropdown(false);
+  };
+
   return (
     <div className={`flower-container ${style}`}>
-      <h2>{`${username}'s Weekly Wellness Flower`}</h2>
-      <h3>{getCurrentWeekDates()}</h3>
-      <div className="style-buttons">
-        <button onClick={() => setStyle('default')}>Default Style</button>
-        <button onClick={() => setStyle('style1')}>Style 1</button>
-        <button onClick={() => setStyle('style2')}>Style 2</button>
+      <div className="sidebar">
+        <h2>{`${username}'s Weekly Wellness Flower`}</h2>
+        <h3>{getCurrentWeekDates()}</h3>
+        <div className="style-dropdown">
+          <button onClick={toggleDropdown} className="change-style-button">Change Style</button>
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <div onClick={() => handleStyleChange('default')}>Default Style</div>
+              <div onClick={() => handleStyleChange('style1')}>Style 1</div>
+              <div onClick={() => handleStyleChange('style2')}>Style 2</div>
+            </div>
+          )}
+        </div>
       </div>
       <div className="plant-container">
-      <div className="pot-container">
-          <img src="/images/pot.png" />
+        <div className="pot-container">
+          <img src="/images/pot.png" alt="Pot" />
         </div>
         <div className="plant-stem" id="plantStem"></div>
         <div className="flower-top" id="flowerTop">
