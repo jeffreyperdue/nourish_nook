@@ -7,6 +7,7 @@ const Calendar = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentDate, setCurrentDate] = useState(new Date().getDate());
   const [flippedDates, setFlippedDates] = useState({});
+  const [dayNumberData, setDayNumberData] = useState({});
 
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -30,6 +31,13 @@ const Calendar = () => {
     setFlippedDates(prevState => ({
       ...prevState,
       [day]: !prevState[day]
+    }));
+    // Fetch or update `day_number` for the clicked day
+    // This is where you'd fetch data from your backend or local state
+    // For demo, we'll just toggle a dummy `day_number`
+    setDayNumberData(prevData => ({
+      ...prevData,
+      [day]: prevData[day] || Math.floor(Math.random() * 10) // Replace with actual data fetching
     }));
   };
 
@@ -64,7 +72,16 @@ const Calendar = () => {
           onClick={() => handleDateClick(day)}
         >
           <div className="day-front">{day}</div>
-          <div className="day-back">Notes for {day}</div>
+          <div className="day-back">
+            {dayNumberData[day] ? (
+              <div className="day-number-container">
+                <img src="/images/calendar_flower.png" alt="Flower" className="flower-image" />
+                <div className="day-number">{dayNumberData[day]}</div>
+              </div>
+            ) : (
+              `Notes for ${day}`
+            )}
+          </div>
         </div>
       );
     }
