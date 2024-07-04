@@ -117,7 +117,9 @@ const Flower = ({ saveImages, username }) => {
         <button onClick={() => setStyle('style2')}>Style 2</button>
       </div>
       <div className="plant-container">
-        <div className="pot" id="pot"></div>
+      <div className="pot-container">
+          <img src="/images/pot.png" />
+        </div>
         <div className="plant-stem" id="plantStem"></div>
         <div className="flower-top" id="flowerTop">
           <div className="flower-center" id="flowerCenter">{number}</div>

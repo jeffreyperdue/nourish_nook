@@ -15,9 +15,24 @@
   margin: 0 auto;
 }
 
-.plant-stem {
+.pot-container {
   position: absolute;
   bottom: 0;
+  width: 120px; /* Adjust width to fit the pot image */
+  height: 100px; /* Adjust height to fit the pot image */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Align the pot to the bottom */
+}
+
+.pot-container img {
+  width: 100%;
+  height: auto;
+}
+
+.plant-stem {
+  position: absolute;
+  bottom: 100px; /* Adjust to place the stem inside the pot */
   width: 10px;
   background-color: green;
   left: 50%;
