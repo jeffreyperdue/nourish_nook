@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import Polaroid from './Polaroid';
 import FoodOfTheDay from './FoodOfTheDay';
+import FoodSearch from './FoodSearch'; // Import FoodSearch
 import Calendar from './Calendar';
 import Flower from './Flower';
 import Modal from './Modal';
@@ -42,6 +43,9 @@ const Dashboard = ({ username }) => {
         </div>
         <div className="fotd-container">
           <FoodOfTheDay />
+        </div>
+        <div className="food-search-container">
+          <FoodSearch />
         </div>
         <div className="flower-container">
           <Flower />

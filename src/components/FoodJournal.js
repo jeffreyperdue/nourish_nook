@@ -1,6 +1,6 @@
-// src/components/FoodJournal.js
 import React, { useState, useEffect, useRef } from 'react';
 import { DndContext } from '@dnd-kit/core';
+import axios from 'axios';
 import StickerBank from './StickerBank';
 import SaveButtons from './SaveButtons';
 import PicnicBasket from './PicnicBasket';
@@ -41,14 +41,31 @@ const FoodJournal = ({ stickers }) => {
         setCurrentEntry(quillInstanceRef.current.root.innerHTML);
       });
     }
+
+    fetchEntries();
   }, []);
 
-  const handleSave = () => {
-    setEntries([...entries, { text: currentEntry, icons }]);
-    setCurrentEntry('');
-    setIcons([]);
-    if (quillInstanceRef.current) {
-      quillInstanceRef.current.root.innerHTML = '';
+  const fetchEntries = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/entries');
+      setEntries(response.data);
+    } catch (err) {
+      console.error('Error fetching entries:', err);
+    }
+  };
+
+  const handleSave = async () => {
+    const newEntry = { text: currentEntry, icons, date: new Date().toLocaleDateString(), username };
+    try {
+      const response = await axios.post('http://localhost:5000/entries', newEntry);
+      setEntries([...entries, response.data]);
+      setCurrentEntry('');
+      setIcons([]);
+      if (quillInstanceRef.current) {
+        quillInstanceRef.current.root.innerHTML = '';
+      }
+    } catch (err) {
+      console.error('Error saving entry:', err);
     }
   };
 
@@ -97,6 +114,20 @@ const FoodJournal = ({ stickers }) => {
                   </div>
                 </div>
                 <SaveButtons onSave={handleSave} onSaveDraft={handleSaveDraft} onDiscard={handleDiscard} />
+              </div>
+              <div className="saved-entries">
+                <h3>Saved Entries</h3>
+                {entries.map((entry, index) => (
+                  <div key={index} className="journal-entry">
+                    <p>{entry.date}</p>
+                    <div dangerouslySetInnerHTML={{ __html: entry.text }} />
+                    <div className="icons">
+                      {entry.icons.map((icon, idx) => (
+                        <img key={idx} src={icon} alt="icon" className="journal-icon" />
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
