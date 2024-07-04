@@ -19,7 +19,11 @@ const Calendar = () => {
 
   const handleMonthClick = (month) => {
     setCurrentMonth(month);
-    setCurrentDate(null); // Clear the current date to avoid incorrect highlighting
+    if (month !== new Date().getMonth() || currentYear !== new Date().getFullYear()) {
+      setCurrentDate(null); // Clear the current date to avoid incorrect highlighting
+    } else {
+      setCurrentDate(new Date().getDate()); // Reset to today's date if back to the current month
+    }
   };
 
   const handleDateClick = (day) => {
