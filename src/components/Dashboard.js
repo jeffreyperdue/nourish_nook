@@ -47,7 +47,7 @@ const Dashboard = ({ username }) => {
           <Flower />
         </div>
         <div className="tom-container">
-        <img src="/images/tom.png" alt="Tom the Tomato" className="tom-image" />
+          <img src="/images/tom.png" alt="Tom the Tomato" className="tom-image" />
         </div>
       </div>
       <div className="dashboard-buttons">

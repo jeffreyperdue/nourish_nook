@@ -1,0 +1,28 @@
+/* src/components/FlowerStyle2.css */
+
+.flower-container.style2 .plant-container {
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.flower-container.style2 .plant-stem {
+  background-color: #006400;
+}
+
+.flower-container.style2 .flower {
+  background-color: #ff69b4;
+  border: 2px solid #ba55d3;
+  box-shadow: 0 0 5px #ba55d3;
+}
+
+.flower-container.style2 .flower-center {
+  background-color: #ffffe0;
+  color: #8b008b;
+}
+
+.flower-container.style2 .petal {
+  background-color: #dda0dd;
+  border: 2px solid #ee82ee;
+  box-shadow: 0 0 5px #ba55d3;
+}

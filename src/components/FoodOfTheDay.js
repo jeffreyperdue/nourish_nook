@@ -1,20 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FastAverageColor } from 'fast-average-color';
 import './FoodOfTheDay.css';
-
-const foods = [
-  {
-    name: 'Apple',
-    image: 'images/apple.png',
-    facts: 'Apples are high in fiber and vitamin C.',
-  },
-  {
-    name: 'Carrot',
-    image: 'images/carrot.png',
-    facts: 'Carrots are a great source of beta-carotene, fiber, and antioxidants.',
-  },
-  // Add more food objects as needed
-];
+import foods from '../components/foodsData';
 
 const getFoodOfTheDay = () => {
   const today = new Date();

@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import './Flower.css';
+import './FlowerStyle1.css';
+import './FlowerStyle2.css';
 
-const Flower = ({ saveImages }) => {
+const Flower = ({ saveImages, username }) => {
   const [number, setNumber] = useState(0);
   const [images, setImages] = useState([]);
+  const [style, setStyle] = useState('default'); // State to track style
 
   useEffect(() => {
     const randomNumber = Math.floor(Math.random() * 16) + 15; // Generate random number between 15 and 30
@@ -93,8 +96,26 @@ const Flower = ({ saveImages }) => {
     }
   };
 
+  const getCurrentWeekDates = () => {
+    const currentDate = new Date();
+    const firstDayOfWeek = currentDate.getDate() - currentDate.getDay();
+    const lastDayOfWeek = firstDayOfWeek + 6;
+
+    const firstDate = new Date(currentDate.setDate(firstDayOfWeek)).toLocaleDateString();
+    const lastDate = new Date(currentDate.setDate(lastDayOfWeek)).toLocaleDateString();
+
+    return `${firstDate} - ${lastDate}`;
+  };
+
   return (
-    <div className="flower-container">
+    <div className={`flower-container ${style}`}>
+      <h2>{`${username}'s Weekly Wellness Flower`}</h2>
+      <h3>{getCurrentWeekDates()}</h3>
+      <div className="style-buttons">
+        <button onClick={() => setStyle('default')}>Default Style</button>
+        <button onClick={() => setStyle('style1')}>Style 1</button>
+        <button onClick={() => setStyle('style2')}>Style 2</button>
+      </div>
       <div className="plant-container">
         <div className="pot" id="pot"></div>
         <div className="plant-stem" id="plantStem"></div>
