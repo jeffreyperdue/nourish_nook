@@ -32,11 +32,12 @@
 
 .plant-stem {
   position: absolute;
-  bottom: 100px; /* Adjust to place the stem inside the pot */
+  bottom: 19px; /* Adjust to place the stem inside the pot */
   width: 10px;
   background-color: green;
   left: 50%;
   transform: translateX(-50%);
+  z-index: -1;
 }
 
 .flower-branch {
