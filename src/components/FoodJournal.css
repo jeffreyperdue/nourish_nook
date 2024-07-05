@@ -211,6 +211,139 @@
   height: auto;
 }
 
+/* Styles for saved entries */
+.saved-entries {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.saved-entries h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Patrick Hand', cursive;
+  background-color: #deb887;
+  color: #4b2e19;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 2px solid #8b4513;
+}
+
+/* Styles for entry buttons */
+.entry-buttons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.entry-button, .edit-button, .delete-button {
+  padding: 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Patrick Hand', cursive;
+  transition: background-color 0.3s ease;
+}
+
+.entry-button {
+  background-color: #deb887;
+  color: #4b2e19;
+}
+
+.edit-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.entry-button:hover {
+  background-color: #d2b48c;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button:hover {
+  background-color: #e53935;
+}
+
+/* Styles for the modal */
+.journal-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 5px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.journal-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journal-modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Patrick Hand', cursive;
+  background-color: #deb887;
+  color: #4b2e19;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #8b4513;
+}
+
+.journal-modal .icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.journal-modal .journal-icon {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.close-modal-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color var(--transition-time);
+}
+
+.close-modal-button:hover {
+  background-color: #45a049;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .food-journal-container {

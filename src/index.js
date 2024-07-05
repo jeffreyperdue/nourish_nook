@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom/client';
 import './styles.css'; // Import global styles
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Modal from 'react-modal';
+
+// Set the root element for react-modal
+Modal.setAppElement('#root');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
