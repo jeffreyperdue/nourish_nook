@@ -13,7 +13,7 @@ const Header = () => {
         <Link to="/dashboard" className="nav-button">Dashboard</Link>
         <Link to="/food-journal" className="nav-button">Journal</Link>
         <Link to="/polaroid-nursery" className="nav-button">Polaroid Nursery</Link>
-        <Link to="/badges-challenges" className="nav-button">Badges & Challenges</Link> {/* Ensure this matches */}
+        <Link to="/BadgesAndChallenges" className="nav-button">Badges & Challenges</Link> {/* Ensure this matches */}
       </nav>
       <div className="account-button">
         <Link to="/login">

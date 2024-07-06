@@ -4,6 +4,10 @@ import html2canvas from 'html2canvas';
 import './Flower.css';
 import './FlowerStyle1.css';
 import './FlowerStyle2.css';
+import './FlowerStyle3.css';
+import './FlowerStyle4.css';
+import './FlowerStyle5.css';
+import './FlowerStyle6.css';
 
 const Flower = ({ saveImages, username }) => {
   const [number, setNumber] = useState(0);
@@ -130,6 +134,10 @@ const Flower = ({ saveImages, username }) => {
               <div onClick={() => handleStyleChange('default')}>Default Style</div>
               <div onClick={() => handleStyleChange('style1')}>Style 1</div>
               <div onClick={() => handleStyleChange('style2')}>Style 2</div>
+              <div onClick={() => handleStyleChange('style3')}>Style 3</div>
+              <div onClick={() => handleStyleChange('style4')}>Style 4</div>
+              <div onClick={() => handleStyleChange('style5')}>Style 5</div>
+              <div onClick={() => handleStyleChange('style6')}>Style 6</div>
             </div>
           )}
         </div>

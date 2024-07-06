@@ -1,0 +1,28 @@
+/* src/components/FlowerStyle3.css */
+
+.flower-container.style3 .plant-container {
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.flower-container.style3 .plant-stem {
+  background-color: #8B4513; /* SaddleBrown */
+}
+
+.flower-container.style3 .flower {
+  background-color: #FFD700; /* Gold */
+  border: 2px solid #FFA500; /* Orange */
+  box-shadow: 0 0 5px #FFA500; /* Orange */
+}
+
+.flower-container.style3 .flower-center {
+  background-color: #FFFACD; /* LemonChiffon */
+  color: #FF4500; /* OrangeRed */
+}
+
+.flower-container.style3 .petal {
+  background-color: #FFDEAD; /* NavajoWhite */
+  border: 2px solid #FFB6C1; /* LightPink */
+  box-shadow: 0 0 5px #FFA500; /* Orange */
+}

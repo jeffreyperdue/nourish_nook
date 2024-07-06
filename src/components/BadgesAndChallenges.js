@@ -32,12 +32,12 @@ const BadgesAndChallenges = ({ username, onCompleteChallenge }) => {
 
   return (
     <main className="badges-challenges-container">
-      <h1>Badges & Challenges</h1>
       <div className="content">
         <div className="sash-column">
           <Sash badges={badges} username={username} />
         </div>
         <div className="badge-column">
+        <h1>Username's Badges</h1>
           <BadgeContainer badges={badges} />
         </div>
         <div className="challenges-column">
@@ -51,7 +51,6 @@ const BadgesAndChallenges = ({ username, onCompleteChallenge }) => {
             />
           ))}
         </div>
-        <DashboardButton />
       </div>
     </main>
   );

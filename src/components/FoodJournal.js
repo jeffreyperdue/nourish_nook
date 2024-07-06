@@ -126,7 +126,6 @@ const FoodJournal = ({ stickers }) => {
       <DndContext onDragEnd={handleDrop}>
         <div className="food-journal-container">
           <div className="left-column">
-            <DashboardButton />
             <PicnicBasket />
           </div>
           <div className="main-column">

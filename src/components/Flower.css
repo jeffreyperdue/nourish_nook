@@ -5,12 +5,71 @@
   padding: 10px;
   display: flex;
   align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .sidebar {
-  margin-right: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
+.sidebar h2 {
+  font-size: 2em;
+  font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.sidebar h3 {
+  font-size: 1.2em;
+  font-family: 'Open Sans', sans-serif; /* Another modern font for dates */
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.style-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.change-style-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.change-style-button:hover {
+  background-color: #45a049;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 10px;
+}
+
+.dropdown-menu div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-menu div:hover {
+  background-color: #ddd;
+}
 
 .plant-container {
   position: relative;
@@ -143,46 +202,4 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color var(--transition-time);
-}
-
-.style-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.change-style-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 15px;
-  font-size: 16px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.change-style-button:hover {
-  background-color: #45a049;
-}
-
-.dropdown-menu {
-  display: block;
-  position: absolute;
-  background-color: white;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-top: 10px;
-}
-
-.dropdown-menu div {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-}
-
-.dropdown-menu div:hover {
-  background-color: #ddd;
 }

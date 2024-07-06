@@ -50,18 +50,6 @@ const Dashboard = ({ username }) => {
           <img src="/images/tom.png" alt="Tom the Tomato" className="tom-image" />
         </div>
       </div>
-      <div className="dashboard-buttons">
-        <Link to="/food-journal">
-          <button className="dashboard-button">Add Journal Entry</button>
-        </Link>
-        <Link to="/badges-challenges">
-          <button className="dashboard-button">View Challenges/Badges</button>
-        </Link>
-        <Link to="/polaroid-nursery">
-          <button className="dashboard-button">Visit Polaroid Nursery</button>
-        </Link>
-        <button className="dashboard-button" onClick={toggleModal}>Quicklog</button>
-      </div>
       <Modal
         isOpen={isModalOpen}
         onClose={toggleModal}
