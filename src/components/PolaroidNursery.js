@@ -20,7 +20,6 @@ const PolaroidNursery = () => {
         {images.map((img, index) => (
           <Polaroid key={index} image={img.image} date={img.date} />
         ))}
-        <DashboardButton />
       </div>
     </main>
   );

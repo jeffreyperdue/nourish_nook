@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { DndContext } from '@dnd-kit/core';
@@ -45,7 +46,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard username="JohnDoe" />} /> {/* Example username */}
             <Route path="/polaroid-nursery" element={<PolaroidNursery />} /> {/* Add Polaroid Nursery route */}
-            <Route path="/badges-challenges" element={<BadgesAndChallenges username="JohnDoe" onCompleteChallenge={completeChallenge} />} />
+            <Route path="/BadgesAndChallenges" element={<BadgesAndChallenges username="JohnDoe" onCompleteChallenge={completeChallenge} />} /> {/* Ensure this matches */}
           </Routes>
           <Footer />
         </div>
