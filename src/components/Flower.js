@@ -8,23 +8,24 @@ import './FlowerStyle3.css';
 import './FlowerStyle4.css';
 import './FlowerStyle5.css';
 import './FlowerStyle6.css';
+import { useUser } from '../contexts/UserContext'; // Import useUser hook
 
-const Flower = ({ saveImages, username }) => {
+const Flower = ({ saveImages }) => {
+  const { user } = useUser(); // Get user data from context
   const [number, setNumber] = useState(0);
   const [images, setImages] = useState([]);
-  const [style, setStyle] = useState('default'); // State to track style
-  const [showDropdown, setShowDropdown] = useState(false); // State to toggle dropdown
+  const [style, setStyle] = useState('default');
+  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
-    const randomNumber = Math.floor(Math.random() * 16) + 15; // Generate random number between 15 and 30
+    const randomNumber = Math.floor(Math.random() * 16) + 15;
     setNumber(randomNumber);
 
-    // Branch generation logic
     const plantStem = document.getElementById('plantStem');
     const flowerTop = document.getElementById('flowerTop');
     const flowerIntervals = [5, 10, 15, 20, 25, 30];
     const flowerImages = [
-      'images/five.png',  // Your custom PNG paths
+      'images/five.png',
       'images/ten.png',
       'images/fifteen.png',
       'images/twenty.png',
@@ -32,51 +33,43 @@ const Flower = ({ saveImages, username }) => {
       'images/thirty.png'
     ];
 
-    // Clear existing branches if any
     while (plantStem.firstChild) {
       plantStem.removeChild(plantStem.firstChild);
     }
 
-    // Set the height of the stem
     const stemHeight = `${randomNumber * 17}px`;
     plantStem.style.height = stemHeight;
 
-    // Position the top flower
     flowerTop.style.bottom = stemHeight;
 
-    // Create and position flowers along the stem
     flowerIntervals.forEach((interval, index) => {
       if (interval < randomNumber) {
         const flowerBranch = document.createElement('div');
         flowerBranch.className = 'flower-branch';
 
-        // Set random length for the branch
-        const branchLength = `${Math.random() * 60 + 10}px`; // Between 10px and 70px
+        const branchLength = `${Math.random() * 60 + 10}px`;
         flowerBranch.style.height = branchLength;
 
         flowerBranch.style.bottom = `${interval * 17}px`;
 
-        // Set specific angles for the branches between 30 and 90 degrees
-        const angle = Math.random() * 60 + 30; // Between 30deg and 90deg
+        const angle = Math.random() * 60 + 30;
         flowerBranch.style.transform = `rotate(${angle}deg)`;
 
-        // Alternate the side of the stem the flowers are on
         if (index % 2 === 0) {
           flowerBranch.style.left = '55%';
         } else {
           flowerBranch.style.left = '45%';
-          flowerBranch.style.transform = `rotate(${-angle}deg)`; // Rotate in the opposite direction for the other side
+          flowerBranch.style.transform = `rotate(${-angle}deg)`;
         }
 
         const flower = document.createElement('div');
         flower.className = 'flower';
         flower.style.bottom = '100%';
 
-        // Add the PNG image
         const flowerImage = document.createElement('img');
         flowerImage.src = flowerImages[index % flowerImages.length];
-        flowerImage.width = 40; // Adjust the width as needed
-        flowerImage.height = 40; // Adjust the height as needed
+        flowerImage.width = 40;
+        flowerImage.height = 40;
 
         flower.appendChild(flowerImage);
         flowerBranch.appendChild(flower);
@@ -84,7 +77,6 @@ const Flower = ({ saveImages, username }) => {
       }
     });
 
-    // Load saved images from local storage
     const savedImages = JSON.parse(localStorage.getItem('flowerImages')) || [];
     setImages(savedImages);
   }, []);
@@ -125,7 +117,7 @@ const Flower = ({ saveImages, username }) => {
   return (
     <div className={`flower-container ${style}`}>
       <div className="sidebar">
-        <h2>{`${username}'s Weekly Wellness Flower`}</h2>
+        <h2>{`${user ? user.username : 'Guest'}'s Weekly Wellness Flower`}</h2>
         <h3>{getCurrentWeekDates()}</h3>
         <div className="style-dropdown">
           <button onClick={toggleDropdown} className="change-style-button">Change Style</button>

@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import Polaroid from './Polaroid';
 import FoodOfTheDay from './FoodOfTheDay';
-import FoodSearch from './FoodSearch'; // Import FoodSearch
+import FoodSearch from './FoodSearch';
 import Calendar from './Calendar';
 import Flower from './Flower';
 import Modal from './Modal';
+import { useUser } from '../contexts/UserContext'; // Import useUser hook
 
-const Dashboard = ({ username }) => {
+const Dashboard = () => {
+  const { user } = useUser(); // Get user data from context
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [journalEntries, setJournalEntries] = useState([]);
 
@@ -34,7 +36,7 @@ const Dashboard = ({ username }) => {
     <main>
       <div className="welcome-message">
         <div className="speech-bubble">
-          Welcome, {username}!
+          Welcome, {user ? user.username : 'Guest'}!
         </div>
       </div>
       <div className="dashboard-content">
@@ -46,9 +48,6 @@ const Dashboard = ({ username }) => {
         </div>
         <div className="flower-container">
           <Flower />
-        </div>
-        <div className="tom-container">
-          <img src="/images/tom.png" alt="Tom the Tomato" className="tom-image" />
         </div>
       </div>
       <Modal

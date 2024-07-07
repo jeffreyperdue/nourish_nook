@@ -196,14 +196,6 @@
   }
 }
 
-.tom-image {
-  width: 350px; /* Adjust the size as needed */
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* src/components/Dashboard.css */
 .fotd-container {
   display: flex;
   justify-content: center; /* Center the FoodOfTheDay component */

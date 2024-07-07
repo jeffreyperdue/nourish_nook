@@ -2,9 +2,16 @@
 import React from 'react';
 import DraggableIcon from './DraggableIcon';
 import './StickerBank.css';
+import { useUser } from '../contexts/UserContext'; // Import useUser hook
 
-const StickerBank = ({ type, stickers = [] }) => {
-  let filteredStickers = stickers.filter(sticker => sticker.pack === type);
+const StickerBank = ({ type }) => {
+  const { user } = useUser(); // Get user data from context
+
+  if (!user) {
+    return <div>Please log in to view your stickers.</div>;
+  }
+
+  let filteredStickers = user.stickers.filter(sticker => sticker.pack === type);
 
   let title = '';
   if (type === 'Fruits & Veggies') {

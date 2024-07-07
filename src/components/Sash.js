@@ -1,14 +1,17 @@
 // src/components/Sash.js
 import React from 'react';
 import './Sash.css';
+import { useUser } from '../contexts/UserContext'; // Import useUser hook
 
-const Sash = ({ badges, username }) => {
+const Sash = () => {
+  const { user } = useUser(); // Get user data from context
+
   return (
     <div className="sash-box">
-      <h2 className="sash-title">{username}'s Sash</h2>
+      <h2 className="sash-title">{user ? `${user.username}'s Sash` : 'Guest\'s Sash'}</h2>
       <div className="sash-container">
         <div className="sash">
-          {badges.map((badge, index) => (
+          {user && user.badges.map((badge, index) => (
             <div key={index} className="badge" style={{ backgroundImage: `url(${badge})` }}></div>
           ))}
         </div>

@@ -67,7 +67,7 @@ const foods = [
   },
   {
     name: 'Pineapple',
-    image: 'images/pineapple.jpg',
+    image: 'images/pineapple.png',
     facts: 'Pineapples are rich in vitamins C and B6, and manganese.',
   },
   {

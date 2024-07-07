@@ -1,8 +1,10 @@
 // src/components/Calendar.js
 import React, { useState, useEffect } from 'react';
 import './Calendar.css';
+import { useUser } from '../contexts/UserContext'; // Import useUser hook
 
 const Calendar = () => {
+  const { user } = useUser(); // Get user data from context
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentDate, setCurrentDate] = useState(new Date().getDate());
@@ -21,9 +23,9 @@ const Calendar = () => {
   const handleMonthClick = (month) => {
     setCurrentMonth(month);
     if (month !== new Date().getMonth() || currentYear !== new Date().getFullYear()) {
-      setCurrentDate(null); // Clear the current date to avoid incorrect highlighting
+      setCurrentDate(null);
     } else {
-      setCurrentDate(new Date().getDate()); // Reset to today's date if back to the current month
+      setCurrentDate(new Date().getDate());
     }
   };
 
@@ -32,13 +34,17 @@ const Calendar = () => {
       ...prevState,
       [day]: !prevState[day]
     }));
-    // Fetch or update `day_number` for the clicked day
-    // This is where you'd fetch data from your backend or local state
-    // For demo, we'll just toggle a dummy `day_number`
-    setDayNumberData(prevData => ({
-      ...prevData,
-      [day]: prevData[day] || Math.floor(Math.random() * 10) // Replace with actual data fetching
-    }));
+
+    // Fetch or update `day_number` for the clicked day based on the user
+    if (user) {
+      // Example: Fetch day number data for the user
+      // Replace this with actual data fetching logic
+      const dayNumber = getUserLoggedData(user.id, day);
+      setDayNumberData(prevData => ({
+        ...prevData,
+        [day]: dayNumber
+      }));
+    }
   };
 
   const renderDaysOfWeek = () => {
@@ -122,3 +128,10 @@ const Calendar = () => {
 };
 
 export default Calendar;
+
+const getUserLoggedData = (userId, day) => {
+  // This function should return the total number of fruits and vegetables
+  // logged by the user on the given day. Replace with actual data fetching logic.
+  // For now, let's return a dummy number.
+  return Math.floor(Math.random() * 10) + 1;
+};

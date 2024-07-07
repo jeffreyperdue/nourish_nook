@@ -1,20 +1,22 @@
+// src/components/FoodJournal.js
 import React, { useState, useEffect, useRef } from 'react';
 import { DndContext } from '@dnd-kit/core';
 import axios from 'axios';
 import StickerBank from './StickerBank';
 import SaveButtons from './SaveButtons';
 import PicnicBasket from './PicnicBasket';
-import DashboardButton from './DashboardButton'; 
+import DashboardButton from './DashboardButton';
 import './FoodJournal.css';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import Modal from 'react-modal';
+import { useUser } from '../contexts/UserContext'; // Import useUser hook
 
-const FoodJournal = ({ stickers }) => {
+const FoodJournal = () => {
+  const { user } = useUser(); // Get user data from context
   const [entries, setEntries] = useState([]);
   const [currentEntry, setCurrentEntry] = useState('');
   const [icons, setIcons] = useState([]);
-  const [username, setUsername] = useState('User');
   const [notification, setNotification] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedEntry, setSelectedEntry] = useState(null);
@@ -23,46 +25,46 @@ const FoodJournal = ({ stickers }) => {
   const quillInstanceRef = useRef(null);
 
   useEffect(() => {
-    setUsername('Hot_Rod_95');
-    if (!quillInstanceRef.current) {
-      quillInstanceRef.current = new Quill(quillRef.current, {
-        theme: 'snow',
-        modules: {
-          toolbar: [
-            [{ font: [] }],
-            [{ size: ['small', false, 'large', 'huge'] }],
-            ['bold', 'italic', 'underline'],
-            [{ list: 'ordered' }, { list: 'bullet' }],
-            [{ script: 'sub' }, { script: 'super' }],
-            [{ align: [] }],
-            [{ color: [] }, { background: [] }],
-            ['clean']
-          ],
-        },
-      });
+    if (user) {
+      if (!quillInstanceRef.current) {
+        quillInstanceRef.current = new Quill(quillRef.current, {
+          theme: 'snow',
+          modules: {
+            toolbar: [
+              [{ font: [] }],
+              [{ size: ['small', false, 'large', 'huge'] }],
+              ['bold', 'italic', 'underline'],
+              [{ list: 'ordered' }, { list: 'bullet' }],
+              [{ script: 'sub' }, { script: 'super' }],
+              [{ align: [] }],
+              [{ color: [] }, { background: [] }],
+              ['clean']
+            ],
+          },
+        });
 
-      quillInstanceRef.current.on('text-change', () => {
-        setCurrentEntry(quillInstanceRef.current.root.innerHTML);
-      });
+        quillInstanceRef.current.on('text-change', () => {
+          setCurrentEntry(quillInstanceRef.current.root.innerHTML);
+        });
+      }
+
+      const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+      setEntries(savedEntries.filter(entry => entry.username === user.username));
     }
-
-    // Load entries from local storage
-    const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
-    setEntries(savedEntries);
-  }, []);
+  }, [user]);
 
   const handleSave = () => {
     if (currentEntry.trim() !== '') {
       let newEntries;
       if (editIndex !== null) {
         newEntries = [...entries];
-        newEntries[editIndex] = { text: currentEntry, icons, date: new Date() };
+        newEntries[editIndex] = { text: currentEntry, icons, date: new Date(), username: user.username };
         setEditIndex(null);
       } else {
-        newEntries = [...entries, { text: currentEntry, icons, date: new Date() }];
+        newEntries = [...entries, { text: currentEntry, icons, date: new Date(), username: user.username }];
       }
       setEntries(newEntries);
-      localStorage.setItem('journalEntries', JSON.stringify(newEntries)); // Save to local storage
+      localStorage.setItem('journalEntries', JSON.stringify(newEntries));
       setCurrentEntry('');
       setIcons([]);
       if (quillInstanceRef.current) {
@@ -86,7 +88,7 @@ const FoodJournal = ({ stickers }) => {
 
   const handleDrop = (event) => {
     const { active } = event;
-    const newItem = active.id.split('/').pop().split('.')[0]; // Extract the name from the icon path
+    const newItem = active.id.split('/').pop().split('.')[0];
     setNotification(`${newItem} added successfully!`);
     setTimeout(() => {
       setNotification('');
@@ -106,7 +108,7 @@ const FoodJournal = ({ stickers }) => {
   const handleDelete = (index) => {
     const newEntries = entries.filter((_, i) => i !== index);
     setEntries(newEntries);
-    localStorage.setItem('journalEntries', JSON.stringify(newEntries)); // Save to local storage
+    localStorage.setItem('journalEntries', JSON.stringify(newEntries));
   };
 
   const todayDate = new Date().toLocaleDateString();
@@ -132,7 +134,7 @@ const FoodJournal = ({ stickers }) => {
           <div className="main-column">
             <div className="food-journal-content">
               <div className="food-journal">
-                <h2>{`${username}'s Journal - ${todayDate}`}</h2>
+                <h2>{`${user ? user.username : 'Guest'}'s Journal - ${todayDate}`}</h2>
                 <div className="journal-area">
                   <div ref={quillRef} className="quill-editor" />
                   <div className="icons">
@@ -159,13 +161,13 @@ const FoodJournal = ({ stickers }) => {
           </div>
           <div className="right-column">
             <div className="sticker-bank-wrapper">
-              <StickerBank type="Fruits & Veggies" stickers={stickers} />
+              <StickerBank type="Fruits & Veggies" stickers={user ? user.stickers.filter(sticker => sticker.pack === 'Fruits & Veggies') : []} />
             </div>
             <div className="sticker-bank-wrapper">
-              <StickerBank type="Emojis" stickers={stickers} />
+              <StickerBank type="Emojis" stickers={user ? user.stickers.filter(sticker => sticker.pack === 'Emojis') : []} />
             </div>
             <div className="sticker-bank-wrapper-bottom">
-              <StickerBank type="Stickers" stickers={stickers} />
+              <StickerBank type="Stickers" stickers={user ? user.stickers.filter(sticker => sticker.pack === 'Stickers') : []} />
             </div>
           </div>
         </div>
@@ -178,7 +180,7 @@ const FoodJournal = ({ stickers }) => {
           className="journal-modal"
           overlayClassName="journal-modal-overlay"
         >
-          <h2>{`${username}'s Journal Entry - ${selectedEntry.date.toLocaleString()}`}</h2>
+          <h2>{`${user ? user.username : 'Guest'}'s Journal Entry - ${selectedEntry.date.toLocaleString()}`}</h2>
           <div dangerouslySetInnerHTML={{ __html: selectedEntry.text }} />
           <div className="icons">
             {selectedEntry.icons.map((icon, index) => (

@@ -13,7 +13,8 @@ import Dashboard from './components/Dashboard';
 import PolaroidNursery from './components/PolaroidNursery';
 import BadgesAndChallenges from './components/BadgesAndChallenges';
 import stickersData from './components/stickers';
-import Footer from './components/Footer'; // Import Footer component
+import Footer from './components/Footer';
+import { UserProvider } from './contexts/UserContext'; // Import UserProvider
 
 function App() {
   const mouseSensor = useSensor(MouseSensor);
@@ -35,23 +36,25 @@ function App() {
   };
 
   return (
-    <DndContext sensors={sensors}>
-      <Router>
-        <div className="App">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/food-journal" element={<FoodJournal stickers={stickers.filter(sticker => sticker.isUnlocked)} />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/dashboard" element={<Dashboard username="JohnDoe" />} /> {/* Example username */}
-            <Route path="/polaroid-nursery" element={<PolaroidNursery />} /> {/* Add Polaroid Nursery route */}
-            <Route path="/BadgesAndChallenges" element={<BadgesAndChallenges username="JohnDoe" onCompleteChallenge={completeChallenge} />} /> {/* Ensure this matches */}
-          </Routes>
-          <Footer />
-        </div>
-      </Router>
-    </DndContext>
+    <UserProvider>
+      <DndContext sensors={sensors}>
+        <Router>
+          <div className="App">
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/food-journal" element={<FoodJournal stickers={stickers.filter(sticker => sticker.isUnlocked)} />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/polaroid-nursery" element={<PolaroidNursery />} />
+              <Route path="/badges-and-challenges" element={<BadgesAndChallenges onCompleteChallenge={completeChallenge} />} />
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
+      </DndContext>
+    </UserProvider>
   );
 }
 
