@@ -20,6 +20,7 @@ const BadgeContainer = ({ badges }) => {
 
   return (
     <div className="badge-container">
+      <h1>Username's Badges</h1>
       <div className="badges">
         {currentBadges.map((badge, index) => (
           <div key={index} className="badge">

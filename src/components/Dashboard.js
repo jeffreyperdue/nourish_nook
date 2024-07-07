@@ -44,9 +44,6 @@ const Dashboard = ({ username }) => {
         <div className="fotd-container">
           <FoodOfTheDay />
         </div>
-        <div className="food-search-container">
-          <FoodSearch />
-        </div>
         <div className="flower-container">
           <Flower />
         </div>

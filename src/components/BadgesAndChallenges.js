@@ -37,7 +37,6 @@ const BadgesAndChallenges = ({ username, onCompleteChallenge }) => {
           <Sash badges={badges} username={username} />
         </div>
         <div className="badge-column">
-        <h1>Username's Badges</h1>
           <BadgeContainer badges={badges} />
         </div>
         <div className="challenges-column">
