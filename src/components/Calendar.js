@@ -132,6 +132,5 @@ export default Calendar;
 const getUserLoggedData = (userId, day) => {
   // This function should return the total number of fruits and vegetables
   // logged by the user on the given day. Replace with actual data fetching logic.
-  // For now, let's return a dummy number.
   return Math.floor(Math.random() * 10) + 1;
 };
